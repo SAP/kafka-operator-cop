@@ -1,0 +1,19 @@
+admissionWebhookRuntimeVersion: v0.1.100
+codeGeneratorVersion: v0.36.0
+controllerRuntimeVersion: v0.24.1
+controllerToolsVersion: v0.21.0
+envtestKubernetesVersion: 1.35.0
+goModule: github.com/sap/kafka-operator-cop
+goVersion: 1.26.4
+groupName: operator.kyma-project.io
+groupVersion: v1alpha1
+image: kafka-operator-cop:latest
+kind: KafkaOperator
+kubernetesVersion: v0.36.0
+mutatingWebhookEnabled: false
+operatorName: kafka-operator-cop.cs.sap.com
+owner: SAP SE or an SAP affiliate company and kafka-operator-cop contributors
+resource: kafkaoperators
+spdxLicenseHeaders: true
+validatingWebhookEnabled: false
+version: v0.3.171

@@ -4,7 +4,7 @@
 
 ## About this project
 
-Component Operator for https://github.com/sap/kafka-operator
+Component Operator for https://github.com/sap/kafka-operator.
 
 ## Requirements and Setup
 
