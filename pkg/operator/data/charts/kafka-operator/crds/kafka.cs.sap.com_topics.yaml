@@ -64,7 +64,7 @@ spec:
                 type: object
               connectionSecretRef:
                 description: Reference to a secret containing the connection details
-                  (see pkg/api/ConnectionDetails)
+                  (see pkg/api#ConnectionDetails)
                 properties:
                   key:
                     minLength: 1
