@@ -84,3 +84,13 @@ pdb:
   # -- Number of pods that are unavailable after eviction as number or percentage (eg.: 50%).
   ## Has higher precedence over `pdb.minAvailable`
   maxUnavailable: ""
+
+metrics:
+  podMonitor:
+    # -- Whether to create a PodMonitor resource
+    enabled: false
+  prometheusRule:
+    # -- Whether to create a PrometheusRule resource
+    enabled: false
+    # -- PrometheusRule rules
+    rules: []

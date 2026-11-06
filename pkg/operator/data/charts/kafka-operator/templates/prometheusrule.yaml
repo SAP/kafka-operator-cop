@@ -1,0 +1,13 @@
+{{- if and .Values.metrics.prometheusRule.enabled .Values.metrics.prometheusRule.rules }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ include "kafka-operator.fullname" . }}
+  labels:
+    {{- include "kafka-operator.labels" . | nindent 4 }}
+spec:
+  groups:
+  - name: {{ include "kafka-operator.name" . }}-alerts
+    rules:
+    {{- toYaml .Values.metrics.prometheusRule.rules | nindent 4 }}
+{{- end }}
