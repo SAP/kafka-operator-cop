@@ -8,7 +8,7 @@ package v1alpha1
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
-
+    prometheusv1 "github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring/v1"
 	"github.com/sap/component-operator-runtime/pkg/component"
 	componentoperatorruntimetypes "github.com/sap/component-operator-runtime/pkg/types"
 )
@@ -22,6 +22,24 @@ type KafkaOperatorSpec struct {
 	// +optional
 	Image                          component.ImageSpec `json:"image"`
 	component.KubernetesProperties `json:",inline"`
+	Metrics                        *MetricsProperties `json:"metrics,omitempty"`
+}
+
+// MetricsProperties defines the properties for the metrics server.
+type MetricsProperties struct {
+	PodMonitor     *PodMonitorProperties     `json:"podMonitor,omitempty"`
+	PrometheusRule *PrometheusRuleProperties `json:"prometheusRule,omitempty"`
+}
+
+// PodMonitorProperties defines the properties for the pod monitor.
+type PodMonitorProperties struct {
+	Enabled bool `json:"enabled,omitempty"`
+}
+
+// PrometheusRuleProperties defines the properties for the prometheus rule.
+type PrometheusRuleProperties struct {
+	Enabled bool                `json:"enabled,omitempty"`
+	Rules   []prometheusv1.Rule `json:"rules,omitempty"`
 }
 
 // KafkaOperatorStatus defines the observed state of KafkaOperator.
